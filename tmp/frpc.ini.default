@@ -1,0 +1,12 @@
+[common]
+server_addr = frp.moozn.com
+server_port = 7000
+privilege_token = zishuo.net
+
+[aria2]
+type = http
+local_ip = 0.0.0.0
+local_port = 6800
+subdomain = aria2
+use_encryption = false
+use_compression = true

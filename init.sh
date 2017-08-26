@@ -18,7 +18,7 @@ if [ "$FRP" = "on" ];then
 	echo "Starting frp"
 	site=$(cat /config/frpc.ini | grep -i subdomain)
 	echo "Your frp $site"
-	nohup frpc -c /config/frpc.ini &
+	frpc -c /config/frpc.ini &
 fi
 echo "Starting aria2c"
 exec aria2c --conf-path=/config/aria2.conf -D

@@ -2,7 +2,6 @@ FROM alpine:latest
 MAINTAINER ZiShuo <www@zishuo.uu.me>
 
 RUN apk add --update \
-	bash \
 	aria2 \
 	supervisor \
 	&& rm -rf /var/cache/apk/*
@@ -22,4 +21,4 @@ VOLUME /config /downloads
 
 EXPOSE 6800
 
-CMD ['/init.sh']
+CMD ["/init.sh"]

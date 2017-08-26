@@ -15,4 +15,5 @@ site=$(cat /config/frpc.ini | grep -i subdomain)
 
 echo "Your frp $site"
 
-exec /usr/bin/supervisord -c /config/supervisord.conf
+aria2c --conf-path=/config/aria2.conf -D
+exec frpc -c /config/frpc.ini

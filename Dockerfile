@@ -1,6 +1,7 @@
 FROM alpine:latest
 MAINTAINER ZiShuo <www@zishuo.uu.me>
 
+ENV FRP 'on'
 RUN apk add --update \
 	aria2 \
 	&& rm -rf /var/cache/apk/*

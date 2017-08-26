@@ -3,7 +3,6 @@ MAINTAINER ZiShuo <www@zishuo.uu.me>
 
 RUN apk add --update \
 	aria2 \
-	supervisor \
 	&& rm -rf /var/cache/apk/*
 
 COPY init.sh /init.sh

@@ -21,4 +21,4 @@ if [ "$FRP" = "on" ];then
 	frpc -c /config/frpc.ini &
 fi
 echo "Starting aria2c"
-exec aria2c --conf-path=/config/aria2.conf -D
+exec aria2c --conf-path=/config/aria2.conf

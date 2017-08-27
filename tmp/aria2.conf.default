@@ -12,7 +12,7 @@ rpc-listen-port=6800
 rpc-allow-origin-all=true
 rpc-listen-all=true
 
-rpc-secret=<password>
+#rpc-secret=<password>
 
 auto-file-renaming=false
 

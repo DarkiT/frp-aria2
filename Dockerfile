@@ -12,8 +12,7 @@ RUN chmod +x /usr/local/bin/frpc && \
 	chmod +x /init.sh && \
 	mkdir /config
 
-COPY tmp/frpc.ini.default /config/frpc.ini.default
-COPY tmp/aria2.conf.default /config/aria2.conf
+COPY tmp/ /etc
 
 VOLUME /config /downloads
 

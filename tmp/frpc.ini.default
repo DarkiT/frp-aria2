@@ -1,5 +1,5 @@
 [common]
-server_addr = frp.moozn.com
+server_addr = cdn.shekd.com
 server_port = 7000
 privilege_token = zishuo.net
 

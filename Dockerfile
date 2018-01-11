@@ -8,6 +8,9 @@ RUN apk add --update \
 	&& rm -rf /var/cache/apk/*
 
 COPY init.sh /init.sh
+COPY download.sh /download.sh
+RUN chmod +x /download.sh && \
+	sh /download.sh
 COPY frpc /usr/local/bin/
 RUN chmod +x /usr/local/bin/frpc && \
 	chmod +x /init.sh && \

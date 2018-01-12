@@ -2,7 +2,7 @@
 
 program_name="frpc"
 version="1.7"
-str_program_dir=""
+str_program_dir="/usr/local/bin"
 download_url="https://code.aliyun.com/clangcn/frp/raw/master"
 program_version="0.14.1"
 # Check OS bit
@@ -29,6 +29,8 @@ fun_getVer(){
 }
 fun_download_file(){
     # download
+    cd ${str_program_dir}
+    ls
 	rm -fr ${program_latest_filename} frp_${program_version}_linux_${ARCHS}
 	if ! wget --no-check-certificate -q ${program_latest_file_url} -O ${program_latest_filename}; then
 		echo -e " ${COLOR_RED}failed${COLOR_END}"
@@ -37,7 +39,7 @@ fun_download_file(){
 	tar xzf ${program_latest_filename}
 	mv frp_${program_version}_linux_${ARCHS}/${program_name} ${str_program_dir}/${program_name}
 	rm -fr ${program_latest_filename} frp_${program_version}_linux_${ARCHS}
-    chown root:root -R ${str_program_dir}
+	ls
     if [ -s ${str_program_dir}/${program_name} ]; then
         [ ! -x ${str_program_dir}/${program_name} ] && chmod 755 ${str_program_dir}/${program_name}
     else

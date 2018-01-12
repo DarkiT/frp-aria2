@@ -9,9 +9,9 @@ RUN apk add --update \
 	aria2 \
 	&& rm -rf /var/cache/apk/*
 
-COPY init.sh /init.sh && \
-	download.sh /download.sh && \
-	tmp/ /etc
+COPY init.sh /init.sh
+COPY download.sh /download.sh
+COPY tmp/ /etc
 
 RUN chmod +x /download.sh && \
 	sh /download.sh && \

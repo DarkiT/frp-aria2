@@ -16,7 +16,6 @@ RUN chmod +x /download.sh && \
 	sh /download.sh && \
 	rm -rf /download.sh
 	
-COPY frpc /usr/local/bin/
 RUN chmod +x /usr/local/bin/frpc && \
 	chmod +x /init.sh && \
 	mkdir /config

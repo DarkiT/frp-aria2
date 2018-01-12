@@ -9,20 +9,18 @@ RUN apk add --update \
 	aria2 \
 	&& rm -rf /var/cache/apk/*
 
-COPY init.sh /init.sh
-COPY download.sh /download.sh
+COPY init.sh /init.sh && \
+	download.sh /download.sh && \
+	tmp/ /etc
 
 RUN chmod +x /download.sh && \
 	sh /download.sh && \
-	rm -rf /download.sh
-	
-RUN chmod +x /usr/local/bin/frpc && \
+	rm -rf /download.sh && \
+	chmod +x /usr/local/bin/frpc && \
 	chmod +x /init.sh && \
 	apk del wget tar && \
 	mkdir /config
-
-COPY tmp/ /etc
-
+	
 VOLUME /config /downloads
 
 EXPOSE 6800

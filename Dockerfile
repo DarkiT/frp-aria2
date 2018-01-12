@@ -4,8 +4,7 @@ MAINTAINER ZiShuo <www@zishuo.uu.me>
 ENV FRP 'on'
 RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/latest-stable/main" > /etc/apk/repositories
 RUN apk add --update \
-	bash \
-	curl \
+	wget \
 	tar \
 	aria2 \
 	&& rm -rf /var/cache/apk/*

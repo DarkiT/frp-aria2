@@ -31,15 +31,18 @@ fun_download_file(){
     # download
     cd ${str_program_dir}
     ls
-	rm -fr ${program_latest_filename} frp_${program_version}_linux_${ARCHS}
-	if ! wget --no-check-certificate -q ${program_latest_file_url} -O ${program_latest_filename}; then
-		echo -e " ${COLOR_RED}failed${COLOR_END}"
-		exit 1
-	fi
-	tar xzf ${program_latest_filename}
-	mv frp_${program_version}_linux_${ARCHS}/${program_name} ${str_program_dir}/${program_name}
-	rm -fr ${program_latest_filename} frp_${program_version}_linux_${ARCHS}
-	ls
+    echo -e "test"
+    rm -fr ${program_latest_filename} frp_${program_version}_linux_${ARCHS}
+    if ! wget --no-check-certificate -q ${program_latest_file_url} -O ${program_latest_filename}; then
+    	echo -e " ${COLOR_RED}failed${COLOR_END}"
+	exit 1
+    fi
+    ls
+    tar xzf ${program_latest_filename}
+    mv frp_${program_version}_linux_${ARCHS}/${program_name} ${str_program_dir}/${program_name}
+    rm -fr ${program_latest_filename} frp_${program_version}_linux_${ARCHS}
+    ls
+    echo "dir"
     if [ -s ${str_program_dir}/${program_name} ]; then
         [ ! -x ${str_program_dir}/${program_name} ] && chmod 755 ${str_program_dir}/${program_name}
     else

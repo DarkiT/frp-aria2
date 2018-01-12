@@ -18,6 +18,7 @@ RUN chmod +x /download.sh && \
 	
 RUN chmod +x /usr/local/bin/frpc && \
 	chmod +x /init.sh && \
+	apk del wget tar && \
 	mkdir /config
 
 COPY tmp/ /etc

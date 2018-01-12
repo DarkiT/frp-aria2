@@ -2,7 +2,7 @@
 
 program_name="frpc"
 version="1.7"
-str_program_dir="."
+str_program_dir=""
 download_url="https://code.aliyun.com/clangcn/frp/raw/master"
 program_version="0.14.1"
 # Check OS bit

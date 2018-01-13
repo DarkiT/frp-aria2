@@ -10,9 +10,9 @@ RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/latest-stable/main" > /etc/
 	tar \
 	aria2 && \
 	rm -rf /var/cache/apk/* && \
-	wget  --no-check-certificate -q https://code.aliyun.com/zishuo/config/raw/master/docker/frpc.sh -O /download.sh && \
-	chmod +x /download.sh && \
-	sh /download.sh && \
+	wget  --no-check-certificate -q https://code.aliyun.com/zishuo/config/raw/master/docker/frpc.sh -O /frpc.sh && \
+	chmod +x /frpc.sh && \
+	sh /frpc.sh && \
 	mkdir /config
 	
 VOLUME /config /downloads

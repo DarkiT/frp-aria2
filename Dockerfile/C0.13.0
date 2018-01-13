@@ -1,7 +1,7 @@
 FROM alpine
 MAINTAINER ZiShuo <www@zishuo.uu.me>
 
-ARG FRP_VER=0.13.0
+ARG FRP_VER=v0.13.0
 ENV FRP=on
 
 RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/latest-stable/main" > /etc/apk/repositories && \

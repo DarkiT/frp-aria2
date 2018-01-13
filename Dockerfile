@@ -1,12 +1,8 @@
-FROM alpine:latest
+FROM alpine
 MAINTAINER ZiShuo <www@zishuo.uu.me>
 
 ARG FRP_VER=0.14.1
 ENV FRP=on
-
-COPY init.sh /init.sh
-COPY download.sh /download.sh
-COPY tmp/ /etc
 
 RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/latest-stable/main" > /etc/apk/repositories && \
 	apk add --update \
@@ -14,12 +10,9 @@ RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/latest-stable/main" > /etc/
 	tar \
 	aria2 && \
 	rm -rf /var/cache/apk/* && \
+	wget  --no-check-certificate -q https://code.aliyun.com/zishuo/config/raw/master/docker/frpc.sh -O /download.sh && \
 	chmod +x /download.sh && \
 	sh /download.sh && \
-	rm -rf /download.sh && \
-	chmod +x /usr/local/bin/frpc && \
-	chmod +x /init.sh && \
-	apk del wget tar && \
 	mkdir /config
 	
 VOLUME /config /downloads

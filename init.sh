@@ -14,7 +14,7 @@ fi
 
 echo "[DONE]"
 
-if [ "$FRP" = "on" ];then
+if [ "$FRP_STATUS" = "on" ];then
 	echo "Starting frp"
 	site=$(cat /config/frpc.ini | grep -i subdomain)
 	echo "Your frp $site"

@@ -1,7 +1,7 @@
 FROM alpine
 MAINTAINER ZiShuo <www@zishuo.uu.me>
 
-ARG FRP_VER=0.9.3
+ARG FRP_VER=v0.15.0
 ENV FRP=on
 ENV TIME_ZONE Asiz/Shanghai
 

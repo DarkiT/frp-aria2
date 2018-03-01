@@ -3,8 +3,9 @@ MAINTAINER ZiShuo <www@zishuo.uu.me>
 
 ARG FRP_VER=v0.12.0
 ENV FRP=on
+ENV TIME_ZONE Asiz/Shanghai
 
-RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/latest-stable/main" > /etc/apk/repositories && \
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
 	apk add --update \
 	wget \
 	tar \
@@ -13,7 +14,9 @@ RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/latest-stable/main" > /etc/
 	wget  --no-check-certificate -q https://code.aliyun.com/zishuo/config/raw/master/docker/frpc.sh -O /frpc.sh && \
 	chmod +x /frpc.sh && \
 	sh /frpc.sh && \
-	mkdir /config
+	mkdir /config  && \
+	echo "${TIME_ZONE}" > /etc/timezone && \
+	ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime
 	
 VOLUME /config /downloads
 

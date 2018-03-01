@@ -3,7 +3,7 @@ MAINTAINER ZiShuo <www@zishuo.uu.me>
 
 ARG FRP_VER=0.9.3
 ENV FRP=on
-ENV TIME_ZONE Asiz/Shanghai
+ENV TIME_ZONE=Asiz/Shanghai
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
 	apk add --update \

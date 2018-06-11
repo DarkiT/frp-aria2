@@ -6,7 +6,7 @@ ENV FRP=on
 ENV TIME_ZONE=Asiz/Shanghai
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
-	apk add --update \
+	apk add --update --no-cache \
 	wget \
 	tar \
 	aria2 && \

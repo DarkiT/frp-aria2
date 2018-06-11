@@ -10,6 +10,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 	wget \
 	tar \
 	aria2 && \
+	tzdata && \
 	rm -rf /var/cache/apk/* && \
 	wget  --no-check-certificate -q https://code.aliyun.com/zishuo/config/raw/master/docker/frpc.sh -O /frpc.sh && \
 	chmod +x /frpc.sh && \

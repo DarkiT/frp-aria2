@@ -2,8 +2,9 @@ FROM alpine
 MAINTAINER ZiShuo <www@zishuo.uu.me>
 
 ARG FRP_VER=v0.20.0
-ENV FRP=on
-ENV TIME_ZONE=Asiz/Shanghai
+ENV FRP on
+ARG TZ="Asia/Shanghai"
+ENV TZ ${TZ}
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
 	apk add --update --no-cache \
@@ -11,13 +12,13 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 	tar \
 	aria2 \
 	tzdata && \
-	rm -rf /var/cache/apk/* && \
 	wget  --no-check-certificate -q https://code.aliyun.com/zishuo/config/raw/master/docker/frpc.sh -O /frpc.sh && \
 	chmod +x /frpc.sh && \
 	sh /frpc.sh && \
 	mkdir /config  && \
-	echo "${TIME_ZONE}" > /etc/timezone && \
-	ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime
+	ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime && \
+	echo ${TZ} > /etc/timezone && \
+	rm -rf /var/cache/apk/*
 	
 VOLUME /config /downloads
 

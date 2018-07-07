@@ -8,9 +8,10 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 	apk add --update \
 	bash \
 	wget \
+	tzdata \
 	tar && \
+	ln -sf /usr/share/zoneinfo/Asiz/Shanghai /etc/localtime && \
 	echo "${TZ}" > /etc/timezone && \
-	ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime && \
 	rm -rf /var/cache/apk/*
 
 CMD ["/bin/bash"]
